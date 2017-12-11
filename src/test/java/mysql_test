@@ -1,0 +1,39 @@
+
+create database test;
+
+// 用户表
+create table table_user(
+id int(11) primary key not null auto_increment,
+username varchar(32) not null,
+password varchar(32) not null
+);
+
+insert into table_user(username,password) values('18824910915','123456');
+insert into table_user(username,password) values('刘德华','123456');
+insert into table_user(username,password) values('陈奕迅','123456');
+insert into table_user(username,password) values('张国荣','123456');
+insert into table_user(username,password) values('谭咏麟','123456');
+insert into table_user(username,password) values('周杰伦','123456');
+insert into table_user(username,password) values('五月天','123456');
+insert into table_user(username,password) values('张学友','123456');
+insert into table_user(username,password) values('林子祥','123456');
+insert into table_user(username,password) values('陈一发儿','123456');
+insert into table_user(username,password) values('李荣浩','123456');
+
+select * from table_user;
+
+update table_user set password = 'qwerty' where username = '18824910915';
+
+delete from table_user where username = '18824910915';
+
+// 订单表
+create table table_order(
+id int(11) primary key not null auto_increment,
+description varchar(200),
+userId int(11) not null
+);
+
+select *
+from table_order
+inner join table_user
+on table_user.id = table_order.userId;
